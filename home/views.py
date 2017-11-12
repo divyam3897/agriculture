@@ -4,6 +4,7 @@ from django.views.generic import TemplateView
 import random
 import paho.mqtt.client as mqtt
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
+import json
 
 
 class Home(TemplateView):
