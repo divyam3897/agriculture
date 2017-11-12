@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Doctor you{% endblock %}
+{% block body_style %}style="background-image: url({% static 'background.jpg' %});background-size:cover;"
+{% endblock %}
+<style>
+html,
+body,
+.container {
+  height: 100%;
+  width: 100%;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mydiv {
+  width: 80px;
+}
+</style>
+{% block content %}
+<div class="container">
+  <div class="mydiv" style="margin-top:5cm;"><center><font size="8"><strong>You don't have {{type}} disease.</strong></center></font></div>
+</div>
+{% endblock %}
