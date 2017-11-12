@@ -3,6 +3,7 @@ from .forms import *
 from django.views.generic import TemplateView
 import random
 import paho.mqtt.client as mqtt
+from django.views.decorators.csrf import csrf_exempt, csrf_protect
 
 
 class Home(TemplateView):
@@ -35,10 +36,9 @@ def check_crops(request):
             mqttc.publish("crop",result["crop"])
             mqttc.publish("devId",result["devId"])
             mqttc.publish("date",result["date"])
-# return render(request,'heartWell.html',{'type':"Heart"})
-# else:
-# return render(request,'heartUnwell.html',{'type':"Heart"})
-
-#     else:
     return render(request, 'symptoms.html', {'form': form,'type':"Heart"})
 
+@csrf_exempt
+def get_details(request):
+    data = json.loads(request.body)
+    print(data)
