@@ -27,7 +27,6 @@ def check_crops(request):
     mqttc.username_pw_set("dfxukbgb", "lq_IHyYetOBV")
     mqttc.connect("m20.cloudmqtt.com", 14917)
     mqttc.on_connect=on_connect
-    print("g")
 
     form = cropsForm()
     if request.method == 'POST': # If the form has been submitted...
@@ -44,4 +43,5 @@ def check_crops(request):
 def get_details(request):
     data = json.loads(request.body)
     print(data)
-    return JsonResponse({'status':'200'})
+    #return JsonResponse({'status':'200'})
+    return render(request,'success.html',{'data': data})

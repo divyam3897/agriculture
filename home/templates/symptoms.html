@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-{% block title %}Doctor you{% endblock %}
+{% block title %}Irrigation amount{% endblock %}
 {% block content %}
-<h1><center>{{type}} disease checker</center></h1>
+<h1><center>Irrigation amount at your door</center></h1>
 <form class="large" method="post" action="home/crops/">
   {% csrf_token %}
   {% for field in form %}
