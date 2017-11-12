@@ -31,7 +31,8 @@
       <a class="navbar-brand" href="{% url 'home:home' %}">Agrocot</a>
     </div>
     <ul class="nav navbar-nav navbar-right">
-      <li {% block nav_home %}class="active"{% endblock %}><a href="{% url 'home:crops' %}"></a>Irrigation level</li>
+      <li {% block nav_home %}class="active"{% endblock %}><a href="{% url 'home:pest' %}">Pest Predictor</a></li>
+      <li {% block nav_crops %}{% endblock %}><a href="{% url 'home:crops' %}">Irrigation level</a></li>
     </ul>
   </div>
 </nav>

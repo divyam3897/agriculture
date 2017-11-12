@@ -6,6 +6,7 @@ import paho.mqtt.client as mqtt
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
 import json
 from django.http import JsonResponse
+from watson_developer_cloud import VisualRecognitionV3
 
 class Home(TemplateView):
     template_name = 'home.html'
@@ -46,3 +47,12 @@ def get_details(request):
 
 def all_details(request):
     return render(request,'success.html',{'ideal': '0.0956654457', 'temp': '0', 'curr_date_water': '162.0', 'humidity': '0', 'actual': '0', 'curr_date': '3', 'total_water_vol': '486.0'})
+
+
+def pests_predictor(request):
+    return render(request,'pests.html')
+
+def image_submit(request):
+    visual_recognition = VisualRecognitionV3('2016-05-20', api_key='8c3cf9aeb2d85c594739a9a90c0ff684a5e6aaa7')
+    print(json.dumps(visual_recognition.classify(images_url="https://transfer.sh/b2BIm/garden.jpg"), indent=2))
+    return render(request,'home.html')
