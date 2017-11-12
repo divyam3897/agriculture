@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .forms import *
 from django.views.generic import TemplateView
 import random
@@ -42,6 +42,6 @@ def check_crops(request):
 @csrf_exempt
 def get_details(request):
     data = json.loads(request.body)
-    print(data)
+    print("hekklo",data)
     #return JsonResponse({'status':'200'})
-    return render(request,'success.html',{'data': data})
+    return redirect(request,'success.html',{'data': data})
