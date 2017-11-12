@@ -7,7 +7,6 @@ from django.views.decorators.csrf import csrf_exempt, csrf_protect
 import json
 from django.http import JsonResponse
 
-
 class Home(TemplateView):
     template_name = 'home.html'
 
@@ -43,5 +42,7 @@ def check_crops(request):
 def get_details(request):
     data = json.loads(request.body)
     print("hekklo",data)
-    #return JsonResponse({'status':'200'})
-    return redirect(request,'success.html',{'data': data})
+    return JsonResponse({'status':'200'})
+
+def all_details(request):
+    return render(request,'success.html',{'ideal': '0.0956654457', 'temp': '0', 'curr_date_water': '162.0', 'humidity': '0', 'actual': '0', 'curr_date': '3', 'total_water_vol': '486.0'})
