@@ -5,6 +5,7 @@ import random
 import paho.mqtt.client as mqtt
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
 import json
+from django.http import JsonResponse
 
 
 class Home(TemplateView):
@@ -43,3 +44,4 @@ def check_crops(request):
 def get_details(request):
     data = json.loads(request.body)
     print(data)
+    return JsonResponse({'status':'200'})
