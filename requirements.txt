@@ -3,7 +3,7 @@ certifi==2017.11.5
 cffi==1.11.2
 chardet==3.0.4
 cryptography==2.1.3
-Django==1.11.7
+Django==1.11.29
 django-bootstrap-form==3.3
 django-controlcenter==0.2.3
 django-location-field==2.0.3
